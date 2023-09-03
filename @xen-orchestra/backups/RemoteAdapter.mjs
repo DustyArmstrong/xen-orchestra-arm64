@@ -366,7 +366,17 @@ export class RemoteAdapter {
     // this is a disposable
     const mountDir = yield getTmpDir()
     // this is also a disposable
-    yield mount(handler, diskId, mountDir)
+    try {
+      // this is also a disposable
+      yield mount(handler, diskId, mountDir)
+    } catch (error) {
+      // fallback in case of missing dependency
+      if (error.code === 'MODULE_NOT_FOUND') {
+        yield* this.#getDiskLegacy(diskId)
+      } else {
+        throw error
+      }
+    }
     // this will yield disk path to caller
     yield `${mountDir}/vhd0`
   }
