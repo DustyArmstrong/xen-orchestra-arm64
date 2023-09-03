@@ -23,7 +23,6 @@
     "promise-toolbox": "^0.21.0",
     "vhd-lib": "^4.5.0"
   },
-  },
   "optionalDependencies": {
     "fuse-native": "^2.2.6"
   },
