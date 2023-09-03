@@ -15,13 +15,14 @@
     "url": "https://vates.fr"
   },
   "engines": {
-    "node": ">=10.0"
+    "node": ">=14"
   },
+  "main": "./index.mjs",
   "dependencies": {
-    "@xen-orchestra/log": "^0.3.0",
     "lru-cache": "^7.14.0",
     "promise-toolbox": "^0.21.0",
-    "vhd-lib": "^4.0.1"
+    "vhd-lib": "^4.5.0"
+  },
   },
   "optionalDependencies": {
     "fuse-native": "^2.2.6"
